@@ -26,4 +26,9 @@ function onDeviceReady() {
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+
+    var myCallback = function(event) { alert('Bingo! It works.'); }
+    var iab = cordova.InAppBrowser;
+    iab.open('https://v2.dev.pastorsline.com/', '_self');
+    iab.addEventListener('message', myCallback);
 }
